@@ -13,7 +13,7 @@ const URL = require("./models/url");
 
 //methods
 const { connectToMongoDb } = require("./connect");
-const { restrictToLoggedInUserOnly } = require("./middlewares/user");
+const { restrictToLoggedInUserOnly, checkAuth } = require("./middlewares/auth");
 
 const app = express();
 const PORT = 8001;
@@ -36,7 +36,7 @@ app.use(cookieParser());
 //setting routes
 app.use("/url", restrictToLoggedInUserOnly, urlRoute);
 app.use("/user", userRoute);
-app.use("/", staticRoute);
+app.use("/", checkAuth, staticRoute);
 app.get("/urls/:shortId", async (req, res) => {
     const shortId = req.params.shortId;
     const entry = await URL.findOneAndUpdate(
