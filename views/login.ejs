@@ -23,6 +23,14 @@
         <br>
         <button type="submit">Login</button>
     </form>
+    <h1>Don't have account?</h1>
+    <button id="signup-btn">Signup</button>
 </body>
+<script>
+    const signupBtn = document.getElementById("signup-btn");
+    signupBtn.addEventListener("click", () => {
+        window.location.href = window.location.href.replace("/login", "/signup");
+    });
+</script>
 
 </html>

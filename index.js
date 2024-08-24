@@ -18,7 +18,7 @@ const { restrictToLoggedInUserOnly, checkAuth } = require("./middlewares/auth");
 const app = express();
 const PORT = 8001;
 
-connectToMongoDb("mongodb://localhost:27017/short-it")
+connectToMongoDb(process.env.MONGODB_URI)
     .then(() => {
         console.log("connected to DB");
     })

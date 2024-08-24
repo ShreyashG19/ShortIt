@@ -26,6 +26,14 @@
         <br>
         <button type="submit">Singup</button>
     </form>
+    <h1>Already have account?</h1>
+    <button id="login-btn">Login</button>
 </body>
+<script>
+    const loginBtn = document.getElementById("login-btn");
+    loginBtn.addEventListener("click", () => {
+        window.location.href = window.location.href.replace("/signup", "/login");
+    });
+</script>
 
 </html>
