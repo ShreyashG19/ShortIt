@@ -32,7 +32,11 @@
 <script>
     const loginBtn = document.getElementById("login-btn");
     loginBtn.addEventListener("click", () => {
-        window.location.href = "https://short-it-lovat.vercel.app/login"
+        if (window.location.href.includes("/user")) {
+            window.location.href = window.location.href.replace("/user/signup", "/login");
+        } else {
+            window.location.href = window.location.href.replace("/signup", "/login");
+        }
     });
 </script>
 
